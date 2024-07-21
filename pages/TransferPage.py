@@ -1,3 +1,4 @@
+from selenium.webdriver.common.alert import Alert
 from selenium.webdriver.common.by import By
 
 from pages.PageObject import PageObject
@@ -31,4 +32,10 @@ class TransferPage(PageObject):
     def successfully_transferred_message_displayed(self):
         expected_message = 'was successfully transferred'
         real_message = self.driver.find_element(By.ID, '_ctl0__ctl0_Content_Main_postResp').text
+        return expected_message == real_message
+
+    def failed_transferred_message_displayed(self, driver):
+        expected_message = 'From Account and To Account fields cannot be the same.'
+        alert = Alert(driver)
+        real_message = alert.text
         return expected_message == real_message
