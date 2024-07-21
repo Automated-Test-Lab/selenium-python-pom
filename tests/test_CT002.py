@@ -9,4 +9,6 @@ class TestCT001:
         login_p.click_to_login()
 
         main_p = MainPage(login_p.driver)
-        main_p.login_failed_message_displayed()
+        assert main_p.login_failed_message_displayed(), 'Message not displayed!'
+
+

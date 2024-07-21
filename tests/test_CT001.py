@@ -9,4 +9,4 @@ class TestCT001:
         login_p.click_to_login()
 
         main_p = MainPage(login_p.driver)
-        main_p.welcome_to_page_message_displayed()
+        assert main_p.is_main_url(), 'Main page not found!'
